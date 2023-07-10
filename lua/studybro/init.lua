@@ -1,4 +1,6 @@
 local utils = require"studybro.utils"
+local sets = require"studybro.sets"
+vim.notify = require"notify"
 -- [[
 -- functions needed: 
 --  - "sb_sets" start (pomo, but gymbro themed)
@@ -13,9 +15,33 @@ local utils = require"studybro.utils"
 -- ]]
 
 local M = {}
+M.setup = function(opts)
+    -- setup save dir
+    if (opts["dir"] == nil or opts["dir"] == "") then
+        opts["dir"] = "~/.studybro/"
+    end
+    utils.create_dir(opts["dir"])
+end
+
 M.start_set = function()
     print(utils.uptime())
 end
 
+M.workout = function()
+    vim.ui.select({"start set", "review macros", "edit progress log"}, {
+        prompt = "welcome bro! select an input to get GAINS",
+        format_item = function(item)
+            return item
+        end,
+    }, function(selection, _)
+        if selection == "start set" then
+            sets.start_set()
+        else
+            vim.notify("idk if you have what it takes to get gains", vim.log.levels.ERROR)
+        end
+    end)
+end
 return M
+
+
 
