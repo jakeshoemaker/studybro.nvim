@@ -1,5 +1,7 @@
 local utils = require"studybro.utils"
 local sets = require"studybro.sets"
+local macros = require"studybro.macros"
+
 vim.notify = require"notify"
 -- [[
 -- functions needed: 
@@ -34,7 +36,9 @@ M.workout = function()
         end,
     }, function(selection, _)
         if selection == "start set" then
-            sets.start_set({reps=1})
+            sets.start_set({reps=15})
+        elseif selection == "review macros" then
+            macros.get()
         else
             vim.notify("idk if you have what it takes to get gains", vim.log.levels.ERROR)
         end
