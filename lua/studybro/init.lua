@@ -13,7 +13,6 @@ vim.notify = require"notify"
 --    -> need a background timer function that writes the time while neovim is opened
 --  - "sb_progress_log" - "stats function per day / month / year / alltime
 -- ]]
-
 local M = {}
 M.setup = function(opts)
     -- setup save dir
@@ -35,7 +34,7 @@ M.workout = function()
         end,
     }, function(selection, _)
         if selection == "start set" then
-            sets.start_set()
+            sets.start_set({reps=1})
         else
             vim.notify("idk if you have what it takes to get gains", vim.log.levels.ERROR)
         end
