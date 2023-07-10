@@ -11,10 +11,11 @@ a neovim plugin aimed to help all the gymbros study. a truly ~ tasteful ~ plugin
 use { 'jakeshoemaker/studybro.nvim' }
 ```
 ### plug 
+```
 Plug 'jakeshoemaker/studybro.nvim'
+```
 
-
-All available commands are available via the picker: 
+#### All available commands are available via the picker: 
 ```
     require"studybro".workout()
 ```
