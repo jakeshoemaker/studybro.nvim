@@ -30,7 +30,7 @@ All available commands are available via the picker:
 ```
 
 #### currently (more coming soon brahs)
-```
+```lua
  require"studybro.sets".start() -- starts pomo style clock defaulted time is 15min
  require"studybro.macros".get() -- gets md file for all your macros (goals)
 ```
