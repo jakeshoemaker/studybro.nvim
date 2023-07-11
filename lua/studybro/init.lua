@@ -3,6 +3,9 @@ local sets = require"studybro.sets"
 local macros = require"studybro.macros"
 
 vim.notify = require"notify"
+
+
+local M = {}
 -- [[
 -- functions needed: 
 --  - "sb_sets" start (pomo, but gymbro themed)
@@ -15,13 +18,13 @@ vim.notify = require"notify"
 --    -> need a background timer function that writes the time while neovim is opened
 --  - "sb_progress_log" - "stats function per day / month / year / alltime
 -- ]]
-local M = {}
+local options = {}
 M.setup = function(opts)
     -- setup save dir
-    if (opts["dir"] == nil or opts["dir"] == "") then
-        opts["dir"] = "~/.studybro/"
-    end
-    utils.create_dir(opts["dir"])
+    options.reps = opts["reps"] or 15
+    options.motivation = opts["motivation"] or "set done, go crush the next one bro!"
+    options.dir = opts["dir"] or "~/.studybro"
+    utils.create_dir(options.dir)
 end
 
 M.start_set = function()
@@ -36,7 +39,10 @@ M.workout = function()
         end,
     }, function(selection, _)
         if selection == "start set" then
-            sets.start_set({reps=15})
+            sets.start({
+                reps=options.reps,
+                motivation=options.motivation
+            })
         elseif selection == "review macros" then
             macros.get()
         else
