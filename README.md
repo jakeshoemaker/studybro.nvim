@@ -10,6 +10,7 @@ a neovim plugin aimed to help all the gymbros study. a truly ~ tasteful ~ plugin
 ``` lua 
 use { 'jakeshoemaker/studybro.nvim' }
 ```
+
 ### plug
 ``` lua
 Plug 'jakeshoemaker/studybro.nvim'
