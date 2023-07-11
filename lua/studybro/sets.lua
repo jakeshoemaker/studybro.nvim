@@ -1,7 +1,7 @@
 vim.notify = require"notify"
 
 local sets = {}
-sets.start_set = function(opts)
+sets.start = function(opts)
     local time = opts["reps"] or 15
 --    uv.sleep(time * 60 * 1000)
     vim.defer_fn(function()
